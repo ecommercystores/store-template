@@ -16,10 +16,5 @@ export const category = defineType({
       type: "slug",
       options: { source: "name" },
     },
-    {
-      name: "description",
-      title: "Description",
-      type: "text",
-    },
   ],
 });

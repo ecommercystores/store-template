@@ -42,6 +42,7 @@ export const product = defineType({
       name: "available",
       title: "Available",
       type: "boolean",
+      initialValue: true,
     },
     {
       name: "isFeatured",
