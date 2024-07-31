@@ -1,27 +1,23 @@
-"use client"
+import React from "react";
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import ProductPage from "@/app/components/product-details";
 
-import { useParams } from 'next/navigation'
-import { Navbar, ProductDetails } from '../../components'
-import React from 'react';
-import { groq } from 'next-sanity';
-import { client } from '@/sanity/lib/client';
+export const revalidate = 30;
 
-const page = async () => {
-    const { slug }:any = useParams();
-    const products = await client.fetch(groq `*[_type=="product"]`);
-    const product = products.find((product:any)=>product.slug.current == slug);
-
-    // console.log(product);
-
-    
+const Page = async ({ params }: { params: { slug: string } }) => {
+  const products = await client.fetch(
+    groq`*[_type == "product" && slug.current == "${params.slug}"]`
+  );
+  const product = products.find(
+    (product: any) => product.slug.current == params.slug
+  );
 
   return (
     <>
-        <Navbar />
-        <ProductDetails product={product} />
+      <ProductPage product={product} />
     </>
+  );
+};
 
-  )
-}
-
-export default page
+export default Page;

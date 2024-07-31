@@ -1,12 +1,14 @@
-import { Hero, Navbar, Products } from "./components";
-import Providers from "./components/Provider";
+import { Hero, Products } from "./components";
+import { Categories } from "./components/Categories";
+
+export const revalidate = 30;
 
 export default function Home() {
   return (
-    <Providers>
-      <Navbar />
+    <>
       {/* <Hero /> */}
+      <Categories slug="" />
       <Products />
-    </Providers>
+    </>
   );
 }

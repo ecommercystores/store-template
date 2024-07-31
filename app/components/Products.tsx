@@ -1,10 +1,11 @@
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import Card from "./Card";
+import SectionWrapper from "./SectionWrapper";
 
 export const Products = () => {
   return (
-    <div className="bg-[#f8f8f8] w-full py-12 mt-[125px]">
+    <div className="w-full pb-4">
       <FeaturedProducts />
       <BestSelling />
       <NewProducts />
@@ -18,16 +19,13 @@ const BestSelling = async () => {
   );
 
   return (
-    <div className="container">
-      <div className="-py4">
-        <h2 className="text-3xl font-bold">Best Selling Products</h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-6">
+    <SectionWrapper title="Best Selling Product">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {products.map((product: any, index: number) => (
           <Card key={index} product={product} />
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
 const FeaturedProducts = async () => {
@@ -36,16 +34,13 @@ const FeaturedProducts = async () => {
   );
 
   return (
-    <div className="container">
-      <div className="-py4">
-        <h2 className="text-3xl font-bold">Featured Products</h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-6">
+    <SectionWrapper title="Featured Products">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {products.map((product: any, index: number) => (
           <Card key={index} product={product} />
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
 const NewProducts = async () => {
@@ -54,15 +49,12 @@ const NewProducts = async () => {
   );
 
   return (
-    <div className="container">
-      <div className="-py4">
-        <h2 className="text-3xl font-bold">Discover New Products</h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 mt-6">
+    <SectionWrapper title="Discover New Products">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {products.map((product: any, index: number) => (
           <Card key={index} product={product} />
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
