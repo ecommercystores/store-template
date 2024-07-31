@@ -21,9 +21,7 @@ const Info: React.FC<InfoProps> = ({ data, phoneNo }) => {
     cart.addItem(data);
   };
 
-  const message = `Hi am interested in ${
-    data.name
-  }. Link: ${origin}/product/${JSON.stringify(data.slug)}`;
+  const message = `Hi am interested in ${data.name}. Link: ${origin}/product/${data.slug.current}`;
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
