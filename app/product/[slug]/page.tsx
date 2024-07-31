@@ -2,6 +2,7 @@ import React from "react";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import ProductPage from "@/app/components/product-details";
+import { Navbar } from "@/app/components";
 
 export const revalidate = 30;
 
@@ -15,6 +16,8 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
+      <Navbar />
+
       <ProductPage product={product} />
     </>
   );
