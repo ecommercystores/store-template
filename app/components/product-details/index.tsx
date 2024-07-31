@@ -15,7 +15,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ product }) => {
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           <Gallery images={product.images} />
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-            <Info data={product} phoneNo="0783291954" />
+            <Info data={product} phoneNo="254783291954" />
           </div>
         </div>
       </div>
