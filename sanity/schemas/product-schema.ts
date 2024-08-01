@@ -17,26 +17,14 @@ export const product = defineType({
       options: { source: "name" },
     },
     {
-      name: "category",
-      title: "Category",
-      type: "reference",
-      to: [{ type: "category" }],
-    },
-    {
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [{ type: "image" }],
+      name: "price",
+      title: "Price",
+      type: "number",
     },
     {
       name: "description",
       title: "Description",
       type: "text",
-    },
-    {
-      name: "price",
-      title: "Price",
-      type: "number",
     },
     {
       name: "available",
@@ -48,6 +36,18 @@ export const product = defineType({
       name: "isFeatured",
       title: "Is Featured",
       type: "boolean",
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: [{ type: "category" }],
+    },
+    {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "image" }],
     },
   ],
 });
