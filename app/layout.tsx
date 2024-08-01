@@ -6,8 +6,12 @@ import Providers from "./components/Provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Shop",
-  description: "shop ecommerce",
+  title: {
+    default: "Shop",
+    template: `%s | Shop`,
+  },
+  description: " The place for all your purchases.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
 };
 
 export default function RootLayout({
