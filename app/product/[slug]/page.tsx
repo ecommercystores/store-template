@@ -31,7 +31,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${product.name}`,
       description: product.description,
-      url: process.env.NEXT_PUBLIC_SITE_URL!,
+      url: `/product/${product.slug.current}`,
       siteName: "Shop", // TODO: update
       images: [
         {
