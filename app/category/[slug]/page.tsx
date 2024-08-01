@@ -1,6 +1,7 @@
 import { Navbar } from "@/app/components";
 import Card from "@/app/components/Card";
 import { Categories } from "@/app/components/Categories";
+import NoProducts from "@/components/no-products";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 
@@ -10,6 +11,7 @@ async function Page({ params }: { params: { slug: string } }) {
   const products = await client.fetch(
     groq`*[_type == "product" && category._ref == *[_type == "category" && name == "${params.slug}"][0]._id]`
   );
+  if (products.length === 0 || !products) return <NoProducts />;
   return (
     <>
       <Navbar />

@@ -21,7 +21,7 @@ const Card = ({ product }: any) => {
       >
         <Image
           src={urlForImage(product?.images && product.images[0]).url()}
-          alt={product.slug}
+          alt={product.name}
           width={220}
           height={100}
           className="w-full h-80 object-cover object-center lg:w-full"

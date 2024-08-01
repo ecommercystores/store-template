@@ -10,8 +10,9 @@ export async function Categories({ slug }: { slug: string }) {
    "slug": slug.current,
 }`
   );
+  if (!categories || categories.length === 0) return null;
   return (
-    <div className="flex  gap-4 flex-wrap p-4  ">
+    <div id="categories" className="flex gap-2 flex-wrap p-4  ">
       {categories.map((item: any) => (
         <CategoryItem
           key={item._id}
