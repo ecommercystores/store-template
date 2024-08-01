@@ -4,7 +4,7 @@ import { client } from "@/sanity/lib/client";
 import ProductPage from "@/app/components/product-details";
 import { Navbar } from "@/app/components";
 
-export const revalidate = 30;
+export const revalidate = 0;
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const products = await client.fetch(

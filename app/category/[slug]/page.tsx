@@ -4,7 +4,7 @@ import { Categories } from "@/app/components/Categories";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
 
-export const revalidate = 30;
+export const revalidate = 0;
 
 async function Page({ params }: { params: { slug: string } }) {
   const products = await client.fetch(
