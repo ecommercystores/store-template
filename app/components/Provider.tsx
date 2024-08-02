@@ -1,19 +1,17 @@
 "use client";
 
-import { PropsWithChildren, useState } from "react";
-import { AppContext } from "../context/AppContext";
-import { CartProvider } from "../context/CartContext";
+import Script from "next/script";
+import { PropsWithChildren } from "react";
 
 const Providers = ({ children }: PropsWithChildren) => {
-  const [showCart, setShowCart] = useState(false);
-
   return (
     <>
-      <CartProvider>
-        <AppContext.Provider value={{ showCart, setShowCart }}>
-          {children}
-        </AppContext.Provider>
-      </CartProvider>
+      <Script
+        strategy="lazyOnload"
+        src="https://embed.tawk.to/66ac80851601a2195b9fd0be/1i48tc2hh"
+      />
+
+      {children}
     </>
   );
 };
