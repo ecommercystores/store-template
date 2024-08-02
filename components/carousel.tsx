@@ -76,6 +76,7 @@ export function BannerCarousel() {
         <div className="flex justify-center bg-black/20 rounded-3xl gap-3 px-2 py-1.5">
           {scrollSnaps.map((_, index) => (
             <button
+              key={index}
               className={`embla__dot rounded-full h-[9px] w-[9px] ${
                 index === selectedIndex ? " bg-gray-800" : "bg-white"
               }`}

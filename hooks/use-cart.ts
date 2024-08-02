@@ -16,24 +16,26 @@ const useCart = create(
       addItem: (data: any) => {
         const currentItems = get().items;
         const existingItem = currentItems.find(
-          (item) => item.slug === data.slug
+          (item) => item.slug.current === data.slug.current
         );
 
         if (existingItem) {
-          return toast("Item already in cart.");
+          return toast.error("Item already in cart.");
         }
 
         set({ items: [...get().items, data] });
         toast.success("Item added to cart.");
       },
       removeItem: (slug: string) => {
-        set({ items: [...get().items.filter((item) => item.slug !== slug)] });
+        set({
+          items: [...get().items.filter((item) => item.slug.current !== slug)],
+        });
         toast.success("Item removed from cart.");
       },
       removeAll: () => set({ items: [] }),
     }),
     {
-      name: "cart-storage",
+      name: "cart",
       storage: createJSONStorage(() => localStorage),
     }
   )

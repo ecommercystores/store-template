@@ -15,7 +15,7 @@ import {
 
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "./ui/use-toast";
+import toast from "react-hot-toast";
 
 const dataSchema = {
   email: z.string().min(1, "required"),
@@ -29,15 +29,11 @@ export const EmailForm = () => {
     },
   });
   const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
   async function onSubmit(data: z.infer<typeof formSchema>) {
     setLoading(true);
 
     setTimeout(() => {
-      toast({
-        title: "You have subscribed ",
-        description: "Thank you for subscribing to our newsletter",
-      });
+      toast.success("Thank you for subscribing to our newsletter");
       setLoading(false);
     }, 2000);
   }
