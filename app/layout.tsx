@@ -1,11 +1,16 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Providers from "./components/Provider";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Inter as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#f8f8f8]`}>
+      <body
+        className={cn("bg-[#f8f8f8] font-sans antialiased", fontSans.variable)}
+      >
         <Providers>
           {children}
           <Toaster />

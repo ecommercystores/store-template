@@ -15,7 +15,7 @@ async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <Navbar />
-      <div className="px-4 md:px-10 lg:px-20 md:my-4">
+      <div className="px-4 md:px-10 lg:px-20 mb-4 md:my-4">
         <div className="flex flex-col gap-2">
           <Categories slug={params.slug} />
         </div>

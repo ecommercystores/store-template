@@ -29,12 +29,12 @@ function CategoryItem({ category, name }: { category: boolean; name: string }) {
     <Link
       href={`/category/${name}`}
       className={`rounded-3xl flex items-center  border shadow-sm py-2 px-4 ${
-        category ? "bg-gray-700" : " hover:bg-gray-500/20 bg-white"
+        category ? "bg-primary" : " hover:bg-primary/20 bg-white"
       }`}
     >
       <p
         className={`text-sm capitalize ${
-          category ? "text-white" : " hover:text-gray-700  text-gray-500"
+          category ? "text-white" : " hover:text-primary  text-primary"
         }`}
       >
         {name}

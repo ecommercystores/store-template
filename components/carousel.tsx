@@ -39,9 +39,9 @@ export function BannerCarousel() {
   const slides = [img1, img2, img3];
   return (
     <>
-      <div className="embla h-full">
+      <div className="embla h-full ">
         <div
-          className="embla__viewport md:rounded-2xl overflow-hidden h-full"
+          className="embla__viewport md:rounded-2xl overflow-hidden h-full bg-black/20"
           ref={viewportRef}
         >
           <div className="embla__container h-full">
@@ -60,17 +60,14 @@ export function BannerCarousel() {
         </div>
       </div>
       <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center">
-        <h2 className="text-gray-800 font-bold text-2xl lg:text-5xl">
+        <h2 className=" font-bold text-2xl lg:text-5xl text-primary">
           Shop Products
         </h2>
-        <p className=" text-md md:text-xl text-gray-800 my-1">
+        <p className=" text-md md:text-xl text-primary my-1">
           Buy out most stylish themed products
         </p>
-        <p className="font-bold text-lg text-gray-800">From KES 600</p>
         <Link href="#categories">
-          <Button className="flex text-white bg-gray-800 w-32 rounded-lg py-[1.5rem]">
-            Shop Now
-          </Button>
+          <Button className="flex w-32 rounded-lg py-[1.5rem]">Shop Now</Button>
         </Link>
 
         <div className="flex justify-center bg-black/20 rounded-3xl gap-3 px-2 py-1.5">
@@ -78,7 +75,7 @@ export function BannerCarousel() {
             <button
               key={index}
               className={`embla__dot rounded-full h-[9px] w-[9px] ${
-                index === selectedIndex ? " bg-gray-800" : "bg-white"
+                index === selectedIndex ? " bg-primary" : "bg-white"
               }`}
               type="button"
               onClick={() => scrollTo(index)}
@@ -91,7 +88,8 @@ export function BannerCarousel() {
 }
 
 export const ProductsCarausel = ({ swagList }: { swagList: any[] }) => {
-  const [viewportRef, embla] = useEmblaCarousel({ loop: false });
+  // @ts-ignore
+  const [viewportRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   const [scrollProgress, setScrollProgress] = useState(0);
   const onScroll = useCallback((embla: any) => {
@@ -128,9 +126,9 @@ export const ProductsCarausel = ({ swagList }: { swagList: any[] }) => {
         </div>
       </div>
       <div className="flex justify-center w-full mt-8">
-        <div className="embla__progress bg-gray-800/20 w-full md:w-[28rem] px-4 rounded-md h-1">
+        <div className="embla__progress bg-primary/20 w-full md:w-[28rem] px-4 rounded-md h-1">
           <div
-            className="embla__progress__bar bg-gray-800 "
+            className="embla__progress__bar bg-primary "
             style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
           />
         </div>

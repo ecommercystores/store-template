@@ -35,7 +35,7 @@ const Footer = async () => {
             </div> */}
             <EmailForm />
 
-            <ul className="flex mt-8 space-x-6 text-gray-600">
+            <ul className="flex mt-8 space-x-6 text-primary">
               {contact.map(
                 (item, i) =>
                   item.active && (
@@ -47,8 +47,8 @@ const Footer = async () => {
             </ul>
           </div>
           <div>
-            <p className="font-medium">Helpful Links</p>
-            <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+            <p className="font-medium text-primary">Helpful Links</p>
+            <nav className="flex flex-col mt-4 space-y-2 text-sm text-primary">
               <Link className="hover:opacity-75" href="/">
                 About
               </Link>
@@ -71,7 +71,7 @@ const Footer = async () => {
             </nav>
           </div>
         </div>
-        <p className="mt-8 text-xs text-gray-800">
+        <p className="mt-8 text-xs text-primary">
           &copy; {new Date().getFullYear()} Shop, Inc. All rights reserved.
         </p>
       </div>

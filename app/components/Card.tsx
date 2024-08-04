@@ -33,19 +33,19 @@ const Card = ({ product }: any) => {
         href={`/product/${product.slug.current}`}
         className="flex justify-between pr-1"
       >
-        <h3 className="text-md uppercase font-bold text-gray-600">
+        <h3 className="text-md capitalize  font-bold text-gray-800">
           {product.name}
         </h3>
       </Link>
       <div className="flex justify-between pr-1">
-        <h3 className="text-lg font-bold text-gray-700">
+        <h3 className="text-md font-bold text-primary">
           KES {addCommaSeparator(Number(product.price))}
         </h3>
         <div
           onClick={onAddToCart}
           className="flex text-green-dark gap-2 items-center md:opacity-0 md:group-hover:opacity-100 transition-opacity cursor-pointer"
         >
-          <p className="font-bold text-base">Add to cart</p>
+          <p className="font-bold text-base text-primary">Add to cart</p>
         </div>
       </div>
     </div>

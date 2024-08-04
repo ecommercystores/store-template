@@ -27,10 +27,8 @@ const Info: React.FC<InfoProps> = ({ data, phoneNo }) => {
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
       <div className="mt-3 flex items-end justify-between">
         <div className="flex justify-between items-center w-full text-2xl text-gray-900">
-          <p className=" font-bold text-gray-800">
-            {data.offer
-              ? formatCurrency(data.discountedPrice)
-              : formatCurrency(data.price)}
+          <p className=" font-bold text-primary">
+            {formatCurrency(data.price)}
           </p>
         </div>
       </div>
@@ -44,7 +42,7 @@ const Info: React.FC<InfoProps> = ({ data, phoneNo }) => {
           onClick={() =>
             window.open(`https://wa.me/${phoneNo}?text=${message}`, "_blank")
           }
-          className="flex text-white bg-green-500 w-full items-center gap-x-2 py-[1.5rem]"
+          className="flex text-white bg-green-500 hover:bg-green-400 w-full items-center gap-x-2 py-[1.5rem]"
         >
           Enquire on whatsapp
           <MessageSquare size={20} />
@@ -53,14 +51,14 @@ const Info: React.FC<InfoProps> = ({ data, phoneNo }) => {
           disabled={phoneNo === undefined}
           variant="outline"
           onClick={() => window.open(`tel:${phoneNo}`, "_blank")}
-          className="flex items-center w-full border border-gray-800  gap-x-2 py-[1.5rem]"
+          className="flex items-center w-full border border-primary gap-x-2 py-[1.5rem]"
         >
           Call Now
           <PhoneCall size={20} />
         </Button>
         <Button
           onClick={onAddToCart}
-          className="flex text-white bg-gray-800 w-full items-center gap-x-2 py-[1.5rem]"
+          className="flex w-full items-center gap-x-2 py-[1.5rem]"
         >
           Add To Cart
           <ShoppingCart size={20} />

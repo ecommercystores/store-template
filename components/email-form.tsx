@@ -48,7 +48,7 @@ export const EmailForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
+                  <FormLabel className="text-primary">
                     Subscribe to our newsletter for regular updates about
                     Offers, Coupons & more
                   </FormLabel>
@@ -63,11 +63,7 @@ export const EmailForm = () => {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              disabled={loading}
-              className="bg-gray-800 text-white max-w-sm"
-            >
+            <Button type="submit" disabled={loading} className="max-w-sm">
               {loading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
