@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 
-const Summary = () => {
+const Summary = ({ phoneNo }: { phoneNo: string }) => {
   const items = useCart((state) => state.items);
 
   const totalPrice = items.reduce((total, item) => {
@@ -31,7 +31,7 @@ const Summary = () => {
       <Button
         disabled={items.length === 0}
         onClick={() =>
-          window.open(`https://wa.me/${254783291954}?text=${message}`, "_blank")
+          window.open(`https://wa.me/${phoneNo}?text=${message}`, "_blank")
         }
         className="flex w-full items-center gap-x-2 py-[1.5rem]"
       >

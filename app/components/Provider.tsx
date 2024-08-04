@@ -6,10 +6,10 @@ import { PropsWithChildren } from "react";
 const Providers = ({ children }: PropsWithChildren) => {
   return (
     <>
-      <Script
+      {/* <Script
         strategy="lazyOnload"
         src="https://embed.tawk.to/66ac80851601a2195b9fd0be/1i48tc2hh"
-      />
+      /> */}
 
       {children}
     </>

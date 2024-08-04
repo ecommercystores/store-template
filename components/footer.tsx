@@ -1,29 +1,23 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import Link from "next/link";
 import { EmailForm } from "./email-form";
+import { getStoreDetails } from "@/actions/store-details";
 
 const Footer = async () => {
-  const contact: {
-    link: string | undefined;
-    active: boolean;
+  const { socialMediaLinks, name } = await getStoreDetails();
+
+  function generateIcon(platform: string) {
+    if (platform === "facebook") return <Facebook />;
+    if (platform === "twitter") return <Twitter />;
+    return <Instagram />;
+  }
+  const socialLinks: {
+    link: string;
     icon: React.ReactElement;
-  }[] = [
-    {
-      link: "/",
-      active: true,
-      icon: <Facebook />,
-    },
-    {
-      link: "/",
-      active: true,
-      icon: <Twitter />,
-    },
-    {
-      link: "/",
-      active: true,
-      icon: <Instagram />,
-    },
-  ];
+  }[] = socialMediaLinks?.map((item) => ({
+    link: item.url,
+    icon: generateIcon(item.platform),
+  }));
 
   return (
     <footer className="bg-white border-t">
@@ -36,14 +30,11 @@ const Footer = async () => {
             <EmailForm />
 
             <ul className="flex mt-8 space-x-6 text-primary">
-              {contact.map(
-                (item, i) =>
-                  item.active && (
-                    <Link key={i} href={item.link || ""} target="_blank">
-                      {item.icon}
-                    </Link>
-                  )
-              )}
+              {socialLinks?.map((item, i) => (
+                <Link key={i} href={item.link || ""} target="_blank">
+                  {item.icon}
+                </Link>
+              ))}
             </ul>
           </div>
           <div>
@@ -72,7 +63,7 @@ const Footer = async () => {
           </div>
         </div>
         <p className="mt-8 text-xs text-primary">
-          &copy; {new Date().getFullYear()} Shop, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} {name}, Inc. All rights reserved.
         </p>
       </div>
     </footer>

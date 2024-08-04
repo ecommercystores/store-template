@@ -12,8 +12,17 @@ import img1 from "/public/billboard-bg.png";
 import img2 from "/public/billboard-bg-2.png";
 import img3 from "/public/billboard-bg-3.png";
 import { Button } from "./ui/button";
+import { urlForImage } from "@/sanity/lib/image";
 
-export function BannerCarousel() {
+export function BannerCarousel({
+  images,
+  title,
+  description,
+}: {
+  images: any[];
+  title: string;
+  description: string;
+}) {
   // @ts-ignore
   const [viewportRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -36,7 +45,7 @@ export function BannerCarousel() {
     embla.on("select", onSelect);
   }, [embla, setScrollSnaps, onSelect]);
 
-  const slides = [img1, img2, img3];
+  const slides = images || [img1, img2, img3];
   return (
     <>
       <div className="embla h-full ">
@@ -48,8 +57,9 @@ export function BannerCarousel() {
             {slides.map((image, index) => (
               <div className="embla__slide  h-full" key={index}>
                 <Image
+                  fill
                   className="w-full h-full md:rounded-2xl object-cover"
-                  src={image}
+                  src={urlForImage(image).url()}
                   alt="banner"
                   placeholder="blur"
                   blurDataURL={blurData}
@@ -60,12 +70,10 @@ export function BannerCarousel() {
         </div>
       </div>
       <div className="absolute inset-0 flex flex-col gap-4 items-center justify-center">
-        <h2 className=" font-bold text-2xl lg:text-5xl text-primary">
-          Shop Products
+        <h2 className=" font-bold text-2xl lg:text-5xl text-primary capitalize">
+          {title}
         </h2>
-        <p className=" text-md md:text-xl text-primary my-1">
-          Buy out most stylish themed products
-        </p>
+        <p className=" text-md md:text-xl text-primary my-1">{description}</p>
         <Link href="#categories">
           <Button className="flex w-32 rounded-lg py-[1.5rem]">Shop Now</Button>
         </Link>
