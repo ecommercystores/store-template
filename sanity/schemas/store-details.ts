@@ -16,5 +16,11 @@ export const details = defineType({
       title: "WhatsApp number",
       type: "string",
     },
+    {
+      name: "socialMediaLinks",
+      title: "Social Media Links",
+      type: "array",
+      of: [{ type: "socialMediaLink" }],
+    },
   ],
 });
