@@ -20,7 +20,7 @@ const Footer = async () => {
   }));
 
   return (
-    <footer className="bg-white border-t">
+    <footer className=" border-t">
       <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>

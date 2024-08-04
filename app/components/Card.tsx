@@ -14,10 +14,10 @@ const Card = ({ product }: any) => {
     cart.addItem(product);
   };
   return (
-    <div className="border rounded-lg p-2.5 pr-1.5 shadow-sm group hover:bg-green-dark/10 bg-white flex flex-col gap-4 ">
+    <div className="border rounded-lg p-2.5 pr-1.5 shadow-sm group hover:bg-card/10 bg-card flex flex-col gap-4 ">
       <Link
         href={`/product/${product.slug.current}`}
-        className="aspect-h-1 aspect-w-1 w-full bg-gray-200 lg:aspect-none group-hover:opacity-75 "
+        className="aspect-h-1 aspect-w-1 w-full lg:aspect-none group-hover:opacity-75 "
       >
         <Image
           src={urlForImage(product?.images && product.images[0]).url()}

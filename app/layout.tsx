@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("bg-[#f8f8f8] font-sans antialiased", fontSans.variable)}
+        className={cn("bg-background font-sans antialiased", fontSans.variable)}
       >
         <Providers>
           {children}

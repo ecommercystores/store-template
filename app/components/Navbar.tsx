@@ -6,7 +6,7 @@ const Navbar = async () => {
   const { name } = await getStoreDetails();
   return (
     <>
-      <div className="w-full px-4 sm:px-6 lg:px-8 h-[10vh] bg-[#f8f8f8] ">
+      <div className="w-full px-4 sm:px-6 lg:px-8 h-[10vh] bg-background ">
         <div className=" w-full h-full flex justify-between items-center">
           <Link
             href="/"
